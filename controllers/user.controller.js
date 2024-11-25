@@ -40,7 +40,7 @@ exports.login = async (req, res) => {
       .json({ success: false, message: "Internal server error." });
   }
 };
-const bcrypt = require("bcrypt");
+
 const CompanyUser = require("../models/user");
 
 exports.createNewUser = async (req, res) => {
