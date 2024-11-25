@@ -12,7 +12,7 @@ if (process.env.NODE_ENV !== "production") {
 
 app.use(
   cors({
-    origin: 'https://medjeex-admin.netlify.app/',
+    origin: 'https://medjeex-admin.netlify.app',
     credentials: true,
   })
 );
