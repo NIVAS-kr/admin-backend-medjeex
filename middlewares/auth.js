@@ -47,7 +47,7 @@ exports.isAdmin = async (req, res, next) => {
             message: "You are not authorized to access this route",
         });
     }
-    next(req.user);
+    next();
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
