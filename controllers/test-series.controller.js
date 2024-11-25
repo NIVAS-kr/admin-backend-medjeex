@@ -9,6 +9,12 @@ const Notification = require("../models/notifications");
 exports.getAllTestSeries = async (req, res) => {
   try {
     const allTestSeries = await TestSeries.find();
+    if(allTestSeries.length <= 0){
+      return res.status(404).json({
+        success: true,
+        message: "Test series not found."
+      });
+    }
 
     return res.status(200).json({
       success: true,
@@ -30,6 +36,13 @@ exports.getAllTestPapersByTestSeriesId = async (req, res) => {
 
     const allTestPapers = await TestPaper.find({ testSeriesId: testSeriesId });
 
+    if(allTestPapers.length <= 0){
+      return res.status(404).json({
+        success: true,
+        message: "Test Papers not found."
+      });
+    }
+
     return res.status(200).json({
       success: true,
       allTestPapers: allTestPapers,
@@ -48,7 +61,12 @@ exports.getAllQuestionsByTestPaperId = async (req, res) => {
     const { testPaperId } = req.body;
 
     const allQuestions = await Question.find({ testPaperId: testPaperId });
-
+    if(allQuestions.length <= 0){
+      return res.status(404).json({
+        success: true,
+        message: "Questions not found."
+      });
+    }
     return res.status(200).json({
       success: true,
       allQuestions: allQuestions,
