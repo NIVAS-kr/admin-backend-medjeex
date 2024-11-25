@@ -13,7 +13,7 @@ const { isAuthenticated,  isAuthorized, isAdmin } = require("../middlewares/auth
 const router = express.Router();
 
 // creating routes
-router.post("/create-test-series",  isAuthenticated, isAdmin, createTestSeries);
+router.post("/create-test-series", isAdmin, createTestSeries);
 router.post("/create-test-paper",  isAuthenticated, createTestPaper);
 router.post("/add-question",  isAuthenticated, addQuestion);
 
