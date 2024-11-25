@@ -133,7 +133,7 @@ exports.createTestSeries = async (req, res) => {
       });
     }
 
-    const { _id:testSeriesCreatedBy } = req.userId;
+    const { _id:testSeriesCreatedBy } = req.user;
 
     const newTestSeries = new TestSeries({
       title,
