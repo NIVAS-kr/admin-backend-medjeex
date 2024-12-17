@@ -2,13 +2,12 @@ const mongoose = require("mongoose");
 
 const notificationSchema = new mongoose.Schema(
   {
-    notificationId: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      unique: true,
-      index: true,
-      default: () => new mongoose.Types.ObjectId(),
+    approved:{
+type: Boolean,
+required:true,
+
     },
+    
     approversId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "CompanyUser",
@@ -20,15 +19,20 @@ const notificationSchema = new mongoose.Schema(
       required: true,
       index: true,
     },
+    testName: {
+      type: String,
+      required: true
+    },
+    creatorName:{
+      type: String,
+      required: true
+    },
     message: {
       type: String,
       required: true,
       trim: true,
     },
-    isRead: {
-      type: Boolean,
-      default: false,
-    },
+    
     testPaperCreatedBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "CompanyUser",

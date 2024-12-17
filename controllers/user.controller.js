@@ -8,7 +8,8 @@ exports.login = async (req, res) => {
       return res.status(400).json({ success: false, message: "please enter email or password" })
     }
     
-    const user = await User.findOne({ email: email }).select("password")
+    const user = await User.findOne({ email: email }).select(" username role imageUrl email phone password")
+
     
     if (!user)
       return res.status(404).json({
@@ -67,10 +68,7 @@ exports.createNewUser = async (req, res) => {
             });
         }
 
-       
-
-        // Create a new user
-        const newUser = await CompanyUser.create({
+       const newUser = await CompanyUser.create({
             username,
             role,
             phone,

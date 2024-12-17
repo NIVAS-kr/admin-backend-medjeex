@@ -17,7 +17,7 @@ const testPaperSchema = new mongoose.Schema(
     },
     totalMarks: {
       type: Number,
-      required: false,
+      required: true,
       min: 0,
     },
     testName: {
@@ -81,8 +81,7 @@ const testPaperSchema = new mongoose.Schema(
 
 testPaperSchema.methods.toJSON = function () {
   const obj = this.toObject();
-  delete obj._id;
-  delete obj.__v;
+  
   return obj;
 };
 

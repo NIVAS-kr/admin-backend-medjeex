@@ -61,10 +61,10 @@ const questionSchema = new mongoose.Schema(
         "Zoology",
       ],
     },
-    correctAnswer: {
+    correctAnswer:[ {
       type: String,
-      required: true,
-    },
+      required: false,
+    }],
     negativeMarks: {
       type: String,
       required: true,
@@ -77,8 +77,6 @@ const questionSchema = new mongoose.Schema(
 
 questionSchema.methods.toJSON = function () {
   const obj = this.toObject();
-  delete obj._id;
-  delete obj.__v;
   return obj;
 };
 

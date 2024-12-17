@@ -52,7 +52,7 @@ const testSeriesSchema = new mongoose.Schema(
           "Zoology",
         ],
         required: true,
-        maxLength: 9,
+        maxLength: 13,
       },
     ],
     totalTest: {
@@ -102,8 +102,7 @@ const testSeriesSchema = new mongoose.Schema(
 
 testSeriesSchema.methods.toJSON = function () {
   const obj = this.toObject();
-  delete obj._id;
-  delete obj.__v;
+  
   return obj;
 };
 

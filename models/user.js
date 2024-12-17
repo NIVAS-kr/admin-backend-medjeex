@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
   role: {
     type: String,
     default: "user",
-    enum: ["user", "admin"],
+    enum: ["teacher", "admin", "course-incharge"],
   },
   phone: {
     type: String,
@@ -30,6 +30,11 @@ const userSchema = new mongoose.Schema({
     minlength: [6, "Password must be at least 6 characters"],
     select: false,
   },
+  requests:[{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Notification",
+      required: true,
+  }]
 });
 // userSchema.pre("save", async function (next) {
 //   if (this.isModified("password")) {
